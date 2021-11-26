@@ -1,5 +1,19 @@
-def ctrl():
-    n = int(input('Choose a number: '))
+from random import randint
+from time import sleep
+
+def ctrl(l,a=0):
+    if a == 1:
+        while True:
+            n = randint(1,9)
+            if n in l:
+                break
+    else:
+        while True:
+            n = int(input('Choose a number: '))
+            if n in l:
+                break
+            else:
+                print('ERROR! Number alredy choosen!')
     if n == 1:
         c = [0,0]
     elif n == 2:
@@ -20,15 +34,20 @@ def ctrl():
         c = [2,2]
     else:
         print('Choose an integer number')
-    return c
+    return c, n
 
-def changing(c,b,k):
+def changingb(c,b,k):
     b[c[0]][c[1]] = k
     return b
 
+def changingl(n,l):
+    l[n-1] = 0
+    return l
+
 def x3():
+    l = [1,2,3,4,5,6,7,8,9]
     b = [[1,2,3],[4,5,6],[7,8,9]]
-    return b
+    return l,b
 
 def board3(b):
     print('-'*13)
@@ -59,35 +78,45 @@ def wins(b):
         w = False
     return w
     
-def game():
-    b = x3()
+def game1p():
     a = 'Y'
     while a == 'Y':
+        k1 = input('Choose a symble: [O/X] ').strip().upper()[0]
+        if k1 == 'O':
+            k2 = 'X'
+        elif k1 == 'X':
+            k2 = 'O'
+        l,b = x3()
         while True:
             board3(b)
-            c = ctrl()
-            a = 'O'
-            b = changing(c,b,a)
-            board3(b)
+            print(f'Player {k1}')
+            c,n = ctrl(l)
+            a = k1
+            b = changingb(c,b,a)
+            l = changingl(n,l)
             w = wins(b)
             if w:
                 break
             else:
                 pass
             board3(b)
-            c = ctrl()
-            a = 'X'
-            b = changing(c,b,a)
-            board3(b)
+            print(f'Player {k2}')
+            c,n = ctrl(l,1)
+            sleep(1)
+            a = k2
+            b = changingb(c,b,a)
+            l = changingl(n,l)
             w = wins(b)
             if w:
                 break
             else:
                 pass
+        board3(b)
         print(f'{a} wins')
         a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+    print('Finishing... See you ;)')
 
-game()
+game1p()
 
 
 

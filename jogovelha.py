@@ -4,11 +4,17 @@ c = mod_jovel.menu1()
 if c == 1:
     c = mod_jovel.menu2()
     if c == 1:
-        pass
+        c = mod_jovel.menu3()
+        if c == 1:
+            mod_jovel.game1p()
+        if c == 2:
+            pass
+        if c == 3:
+            pass
     if c == 2:
         c = mod_jovel.menu3()
         if c == 1:
-            mod_jovel.game()
+            mod_jovel.game2p()
         if c == 2:
             pass
         if c == 3:
