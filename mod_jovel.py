@@ -18,9 +18,8 @@ def readint(msg):
 
 def readstr(msg): 
     while True:
-        try:
-            n = str(input(msg))
-        except:
+        n = input(msg)
+        if not n.isalpha():
             print(f'\033[0;31mERROR! Use an letter to choose.\033[m')
             sleep(1)
         else:
@@ -48,6 +47,7 @@ def menu1():
             return c
         else:
             print(f'\033[0;31mERROR! Choose one of the numbers on the MENU\033[m')
+            sleep(1)
 
 def menu2():
     m2 = ['1Player', '2Players']
@@ -63,6 +63,7 @@ def menu2():
             return c
         else:
             print(f'\033[0;31mERROR! Choose one of the numbers on the MENU\033[m')
+            sleep(1)
     
 def menu3():
     m3 = ['3x3','4x4','5x5']
@@ -78,6 +79,7 @@ def menu3():
                 return c
         else:
             print(f'\033[0;31mERROR! Choose one of the numbers on the MENU\033[m')
+            sleep(1)
 
 def x3():
     l = [1,2,3,4,5,6,7,8,9]
@@ -85,12 +87,18 @@ def x3():
     return l,b
 
 def board3(b):
-    print('-'*13)
-    for i in b:
-        for j in i:
-            print(f'| {j}',end=' ')
-        print('|')
-        print('-'*13)
+    print()
+    for i in range(0,3):
+        for j in range(0,3):
+            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                print(f' {b[i][j]}',end=' ')
+            else:
+                print(f'| {b[i][j]}',end=' ')
+        print()
+        if i == 2:
+            print()
+        else:
+            print('-'*11)
 
 def ctrl3(l,a=0):
     if a == 1:
@@ -100,11 +108,14 @@ def ctrl3(l,a=0):
                 break
     else:
         while True:
-            n = int(input('Choose a number: '))
+            n = readint('Choose a number: ')
             if n in l:
                 break
             else:
-                print('ERROR! Number alredy choosen!')
+                if n in [1,2,3,4,5,6,7,8,9]:
+                    print(f'\033[0;31mERROR! Number alredy choosen!\033[m')
+                else:
+                    print(f'\033[0;31mERROR! Choose only numbers between 1 and 9.\033[m')
     if n == 1:
         c = [0,0]
     elif n == 2:
@@ -123,8 +134,6 @@ def ctrl3(l,a=0):
         c = [2,1]
     elif n == 9:
         c = [2,2]
-    else:
-        print('Choose an integer number')
     return c, n
 
 def wins3(b):
@@ -151,7 +160,12 @@ def wins3(b):
 def game1p3():
     a = 'Y'
     while a == 'Y':
-        k1 = input('Choose a symble: [O/X] ').strip().upper()[0]
+        while True:
+            k1 = readstr('Choose a symble: [O/X] ').strip().upper()[0]
+            if k1 == 'O' or k1 == 'X':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only O or X.\033[m')
         if k1 == 'O':
             k2 = 'X'
         elif k1 == 'X':
@@ -183,7 +197,12 @@ def game1p3():
                 pass
         board3(b)
         print(f'{a} wins')
-        a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+        while True:
+            a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
+            if a == 'Y' or a == 'N':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
 
 def game2p3():
@@ -224,12 +243,18 @@ def x4():
     return l,b
 
 def board4(b):
-    print('-'*25)
-    for i in b:
-        for j in i:
-            print(f'| {j:^3}',end=' ')
-        print('|')
-        print('-'*25)
+    print()
+    for i in range(0,4):
+        for j in range(0,4):
+            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0):
+                print(f' {b[i][j]:^3}',end=' ')
+            else:
+                print(f'| {b[i][j]:^3}',end=' ')
+        print()
+        if i == 3:
+            print()
+        else:
+            print('-'*23)
 
 def ctrl4(l,a=0):
     if a == 1:
@@ -376,18 +401,24 @@ def game2p4():
         a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
     print('Finishing... Thanks for playing ;)')
 
-def board5(b):
-    print('-'*31)
-    for i in b:
-        for j in i:
-            print(f'| {j:^3}',end=' ')
-        print('|')
-        print('-'*31)
-
 def x5():
     l = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
     b = [[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]]
     return l,b
+
+def board5(b):
+    print()
+    for i in range(0,5):
+        for j in range(0,5):
+            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0) or (i,j) == (4,0):
+                print(f' {b[i][j]:^3}',end=' ')
+            else:
+                print(f'| {b[i][j]:^3}',end=' ')
+        print()
+        if i == 4:
+            print()
+        else:
+            print('-'*29)
 
 def ctrl5(l,a=0):
     if a == 1:
