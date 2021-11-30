@@ -181,6 +181,8 @@ def game1p3():
             w = wins3(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
             board3(b)
@@ -193,10 +195,15 @@ def game1p3():
             w = wins3(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
         board3(b)
-        print(f'{a} wins')
+        if w:
+            print(f'{a} wins')
+        else: 
+            print('Oh, we tied haha!')
         while True:
             a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
             if a == 'Y' or a == 'N':
@@ -204,6 +211,7 @@ def game1p3():
             else:
                 print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
+    sleep(1)
 
 def game2p3():
     a = 'Y'
@@ -219,6 +227,8 @@ def game2p3():
             w = wins3(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
             board3(b)
@@ -230,12 +240,23 @@ def game2p3():
             w = wins3(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
         board3(b)
-        print(f'{a} wins')
-        a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+        if w:
+            print(f'{a} wins')
+        else: 
+            print('Oh, you tied haha!')
+        while True:
+            a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
+            if a == 'Y' or a == 'N':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
+    sleep(1)
 
 def x4():
     l = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
@@ -264,11 +285,14 @@ def ctrl4(l,a=0):
                 break
     else:
         while True:
-            n = int(input('Choose a number: '))
+            n = readint('Choose a number: ')
             if n in l:
                 break
             else:
-                print('ERROR! Number alredy choosen!')
+                if n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]:
+                    print(f'\033[0;31mERROR! Number alredy choosen!\033[m')
+                else:
+                    print(f'\033[0;31mERROR! Choose only numbers between 1 and 9.\033[m')
     if n == 1:
         c = [0,0]
     elif n == 2:
@@ -301,9 +325,6 @@ def ctrl4(l,a=0):
         c = [3,2]
     elif n == 16:
         c = [3,3]
-
-    else:
-        print('Choose an integer number')
     return c, n
 
 def wins4(b):
@@ -334,7 +355,12 @@ def wins4(b):
 def game1p4():
     a = 'Y'
     while a == 'Y':
-        k1 = input('Choose a symble: [O/X] ').strip().upper()[0]
+        while True:
+            k1 = readstr('Choose a symble: [O/X] ').strip().upper()[0]
+            if k1 == 'O' or k1 == 'X':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only O or X.\033[m')
         if k1 == 'O':
             k2 = 'X'
         elif k1 == 'X':
@@ -350,6 +376,8 @@ def game1p4():
             w = wins4(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
             board4(b)
@@ -362,12 +390,23 @@ def game1p4():
             w = wins4(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
         board4(b)
-        print(f'{a} wins')
-        a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+        if w:
+            print(f'{a} wins')
+        else: 
+            print('Oh, we tied haha!')
+        while True:
+            a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
+            if a == 'Y' or a == 'N':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
+    sleep(1)
 
 def game2p4():
     a = 'Y'
@@ -383,6 +422,8 @@ def game2p4():
             w = wins4(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
             board4(b)
@@ -394,12 +435,23 @@ def game2p4():
             w = wins4(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
         board4(b)
-        print(f'{a} wins')
-        a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+        if w:
+            print(f'{a} wins')
+        else: 
+            print('Oh, you tied haha!')
+        while True:
+            a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
+            if a == 'Y' or a == 'N':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
+    sleep(1)
 
 def x5():
     l = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
@@ -428,11 +480,14 @@ def ctrl5(l,a=0):
                 break
     else:
         while True:
-            n = int(input('Choose a number: '))
+            n = readint('Choose a number: ')
             if n in l:
                 break
             else:
-                print('ERROR! Number alredy choosen!')
+                if n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]:
+                    print(f'\033[0;31mERROR! Number alredy choosen!\033[m')
+                else:
+                    print(f'\033[0;31mERROR! Choose only numbers between 1 and 9.\033[m')
     if n == 1:
         c = [0,0]
     elif n == 2:
@@ -483,9 +538,6 @@ def ctrl5(l,a=0):
         c = [4,3]
     elif n == 25:
         c = [4,4]
-
-    else:
-        print('Choose an integer number')
     return c, n
 
 def wins5(b):
@@ -520,7 +572,12 @@ def wins5(b):
 def game1p5():
     a = 'Y'
     while a == 'Y':
-        k1 = input('Choose a symble: [O/X] ').strip().upper()[0]
+        while True:
+            k1 = readstr('Choose a symble: [O/X] ').strip().upper()[0]
+            if k1 == 'O' or k1 == 'X':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only O or X.\033[m')
         if k1 == 'O':
             k2 = 'X'
         elif k1 == 'X':
@@ -536,6 +593,8 @@ def game1p5():
             w = wins5(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
             board5(b)
@@ -548,12 +607,23 @@ def game1p5():
             w = wins5(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
         board5(b)
-        print(f'{a} wins')
-        a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+        if w:
+            print(f'{a} wins')
+        else: 
+            print('Oh, we tied haha!')
+        while True:
+            a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
+            if a == 'Y' or a == 'N':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
+    sleep(1)
 
 def game2p5():
     a = 'Y'
@@ -569,6 +639,8 @@ def game2p5():
             w = wins5(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
             board5(b)
@@ -580,12 +652,23 @@ def game2p5():
             w = wins5(b)
             if w:
                 break
+            elif sum(l) == 0:
+                break
             else:
                 pass
         board5(b)
-        print(f'{a} wins')
-        a = input('Do you want to play again? [Y/N] ').strip().upper()[0]
+        if w:
+            print(f'{a} wins')
+        else: 
+            print('Oh, you tied haha!')
+        while True:
+            a = readstr('Do you want to play again? [Y/N] ').strip().upper()[0]
+            if a == 'Y' or a == 'N':
+                break
+            else:
+                print(f'\033[0;31mERROR! Choose only Y or N.\033[m')
     print('Finishing... Thanks for playing ;)')
+    sleep(1)
 
 
     
