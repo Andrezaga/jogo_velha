@@ -87,7 +87,7 @@ def x3():
     return l,b
 
 def board3(b):
-    print()
+    print(f'{"Quit[0]":>20}')
     for i in range(0,3):
         for j in range(0,3):
             if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
@@ -110,6 +110,8 @@ def ctrl3(l,a=0):
         while True:
             n = readint('Choose a number: ')
             if n in l:
+                break
+            if n == 0:
                 break
             else:
                 if n in [1,2,3,4,5,6,7,8,9]:
@@ -134,6 +136,8 @@ def ctrl3(l,a=0):
         c = [2,1]
     elif n == 9:
         c = [2,2]
+    else:
+        c = 0
     return c, n
 
 def wins3(b):
@@ -175,6 +179,10 @@ def game1p3():
             board3(b)
             print(f'Player {k1}')
             c,n = ctrl3(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = k1
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -199,6 +207,8 @@ def game1p3():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board3(b)
         if w:
             print(f'{a} wins')
@@ -221,6 +231,10 @@ def game2p3():
             board3(b)
             print('Player O')
             c,n = ctrl3(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = 'O'
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -234,6 +248,10 @@ def game2p3():
             board3(b)
             print('Player X')
             c,n = ctrl3(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = 'X'
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -244,6 +262,8 @@ def game2p3():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board3(b)
         if w:
             print(f'{a} wins')
@@ -264,7 +284,7 @@ def x4():
     return l,b
 
 def board4(b):
-    print()
+    print(f'{"Quit[0]":>32}')
     for i in range(0,4):
         for j in range(0,4):
             if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0):
@@ -287,6 +307,8 @@ def ctrl4(l,a=0):
         while True:
             n = readint('Choose a number: ')
             if n in l:
+                break
+            if n == 0:
                 break
             else:
                 if n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]:
@@ -325,6 +347,8 @@ def ctrl4(l,a=0):
         c = [3,2]
     elif n == 16:
         c = [3,3]
+    else:
+        c = 0
     return c, n
 
 def wins4(b):
@@ -370,6 +394,10 @@ def game1p4():
             board4(b)
             print(f'Player {k1}')
             c,n = ctrl4(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = k1
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -394,6 +422,8 @@ def game1p4():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board4(b)
         if w:
             print(f'{a} wins')
@@ -416,6 +446,10 @@ def game2p4():
             board4(b)
             print('Player O')
             c,n = ctrl4(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = 'O'
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -429,6 +463,10 @@ def game2p4():
             board4(b)
             print('Player X')
             c,n = ctrl4(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = 'X'
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -439,6 +477,8 @@ def game2p4():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board4(b)
         if w:
             print(f'{a} wins')
@@ -459,7 +499,7 @@ def x5():
     return l,b
 
 def board5(b):
-    print()
+    print(f'{"Quit[0]":>38}')
     for i in range(0,5):
         for j in range(0,5):
             if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0) or (i,j) == (4,0):
@@ -482,6 +522,8 @@ def ctrl5(l,a=0):
         while True:
             n = readint('Choose a number: ')
             if n in l:
+                break
+            if n == 0:
                 break
             else:
                 if n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]:
@@ -538,6 +580,8 @@ def ctrl5(l,a=0):
         c = [4,3]
     elif n == 25:
         c = [4,4]
+    else:
+        c = 0
     return c, n
 
 def wins5(b):
@@ -587,6 +631,10 @@ def game1p5():
             board5(b)
             print(f'Player {k1}')
             c,n = ctrl5(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = k1
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -611,6 +659,8 @@ def game1p5():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board5(b)
         if w:
             print(f'{a} wins')
@@ -633,6 +683,10 @@ def game2p5():
             board5(b)
             print('Player O')
             c,n = ctrl5(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = 'O'
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -646,6 +700,10 @@ def game2p5():
             board5(b)
             print('Player X')
             c,n = ctrl5(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = 'X'
             b = changingb(c,b,a)
             l = changingl(n,l)
@@ -656,6 +714,8 @@ def game2p5():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board5(b)
         if w:
             print(f'{a} wins')

@@ -8,13 +8,19 @@ def x3():
     return l,b
 
 def board3(b):
-    print()
+    print(f'{"Quit[0]":>20}')
     for i in range(0,3):
         for j in range(0,3):
-            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
-                print(f' {b[i][j]}',end=' ')
+            if b[i][j] == 'X' or b[i][j] == 'O':
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                    print(f' \033[0;33m{b[i][j]}\033[m',end=' ')
+                else:
+                    print(f'| \033[0;33m{b[i][j]}\033[m',end=' ')
             else:
-                print(f'| {b[i][j]}',end=' ')
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                    print(f' {b[i][j]}',end=' ')
+                else:
+                    print(f'| {b[i][j]}',end=' ')
         print()
         if i == 2:
             print()
@@ -31,6 +37,8 @@ def ctrl3(l,a=0):
         while True:
             n = mod_jovel.readint('Choose a number: ')
             if n in l:
+                break
+            if n == 0:
                 break
             else:
                 if n in [1,2,3,4,5,6,7,8,9]:
@@ -55,6 +63,8 @@ def ctrl3(l,a=0):
         c = [2,1]
     elif n == 9:
         c = [2,2]
+    else:
+        c = 0
     return c, n
 
 def wins3(b):
@@ -96,6 +106,10 @@ def game1p3():
             board3(b)
             print(f'Player {k1}')
             c,n = ctrl3(l)
+            if n == 0:
+                break
+            else:
+                pass
             a = k1
             b = mod_jovel.changingb(c,b,a)
             l = mod_jovel.changingl(n,l)
@@ -120,6 +134,8 @@ def game1p3():
                 break
             else:
                 pass
+        if n == 0:
+            break
         board3(b)
         if w:
             print(f'{a} wins')
@@ -179,7 +195,7 @@ def game2p3():
     print('Finishing... Thanks for playing ;)')
     sleep(1)
 
-game2p3()
+game1p3()
 
 
 
