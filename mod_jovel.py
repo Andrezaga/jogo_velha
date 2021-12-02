@@ -90,10 +90,16 @@ def board3(b):
     print(f'{"Quit[0]":>20}')
     for i in range(0,3):
         for j in range(0,3):
-            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
-                print(f' {b[i][j]}',end=' ')
+            if b[i][j] == 'X' or b[i][j] == 'O':
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                    print(f' \033[0;33m{b[i][j]}\033[m',end=' ')
+                else:
+                    print(f'| \033[0;33m{b[i][j]}\033[m',end=' ')
             else:
-                print(f'| {b[i][j]}',end=' ')
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                    print(f' {b[i][j]}',end=' ')
+                else:
+                    print(f'| {b[i][j]}',end=' ')
         print()
         if i == 2:
             print()
@@ -287,10 +293,16 @@ def board4(b):
     print(f'{"Quit[0]":>32}')
     for i in range(0,4):
         for j in range(0,4):
-            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0):
-                print(f' {b[i][j]:^3}',end=' ')
+            if b[i][j] == 'X' or b[i][j] == 'O':
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                    print(f' \033[0;33m{b[i][j]:^3}\033[m',end=' ')
+                else:
+                    print(f'| \033[0;33m{b[i][j]:^3}\033[m',end=' ')
             else:
-                print(f'| {b[i][j]:^3}',end=' ')
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0):
+                    print(f' {b[i][j]:^3}',end=' ')
+                else:
+                    print(f'| {b[i][j]:^3}',end=' ')
         print()
         if i == 3:
             print()
@@ -352,25 +364,53 @@ def ctrl4(l,a=0):
     return c, n
 
 def wins4(b):
-    if b[0][0] == b[0][1] == b[0][2] == b[0][3]:
+    if b[0][0] == b[0][1] == b[0][2]:
         w = True
-    elif b[1][0] == b[1][1] == b[1][2] == b[1][3]:
+    elif b[0][1] == b[0][2] == b[0][3]:
         w = True
-    elif b[2][0] == b[2][1] == b[2][2] == b[2][3]:
+    elif b[1][0] == b[1][1] == b[1][2]:
         w = True
-    elif b[3][0] == b[3][1] == b[3][2] == b[3][3]:
+    elif b[1][1] == b[1][2] == b[1][3]:
         w = True
-    elif b[0][0] == b[1][0] == b[2][0] == b[3][0]:
+    elif b[2][0] == b[2][1] == b[2][2]:
         w = True
-    elif b[0][1] == b[1][1] == b[2][1] == b[3][1]:
+    elif b[2][1] == b[2][2] == b[2][3]:
         w = True
-    elif b[0][2] == b[1][2] == b[2][2] == b[3][2]:
+    elif b[3][0] == b[3][1] == b[3][2]:
         w = True
-    elif b[0][3] == b[1][3] == b[2][3] == b[3][3]:
+    elif b[3][1] == b[3][2] == b[3][3]:
         w = True
-    elif b[0][0] == b[1][1] == b[2][2] == b[3][3]:
+    elif b[0][0] == b[1][0] == b[2][0]:
         w = True
-    elif b[0][3] == b[1][2] == b[2][1] == b[3][0]:
+    elif b[1][0] == b[2][0] == b[3][0]:
+        w = True
+    elif b[0][1] == b[1][1] == b[2][1]:
+        w = True
+    elif b[1][1] == b[2][1] == b[3][1]:
+        w = True
+    elif b[0][2] == b[1][2] == b[2][2]:
+        w = True
+    elif b[1][2] == b[2][2] == b[3][2]:
+        w = True
+    elif b[0][3] == b[1][3] == b[2][3]:
+        w = True
+    elif b[1][3] == b[2][3] == b[3][3]:
+        w = True
+    elif b[0][0] == b[1][1] == b[2][2]:
+        w = True
+    elif b[1][1] == b[2][2] == b[3][3]:
+        w = True
+    elif b[0][3] == b[1][2] == b[2][1]:
+        w = True
+    elif b[1][2] == b[2][1] == b[3][0]:
+        w = True
+    elif b[1][0] == b[2][1] == b[3][2]:
+        w = True
+    elif b[0][1] == b[1][2] == b[2][3]:
+        w = True
+    elif b[2][0] == b[1][1] == b[0][2]:
+        w = True
+    elif b[3][1] == b[2][2] == b[1][3]:
         w = True
     else:
         w = False
@@ -502,10 +542,16 @@ def board5(b):
     print(f'{"Quit[0]":>38}')
     for i in range(0,5):
         for j in range(0,5):
-            if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0) or (i,j) == (4,0):
-                print(f' {b[i][j]:^3}',end=' ')
+            if b[i][j] == 'X' or b[i][j] == 'O':
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0):
+                    print(f' \033[0;33m{b[i][j]:^3}\033[m',end=' ')
+                else:
+                    print(f'| \033[0;33m{b[i][j]:^3}\033[m',end=' ')
             else:
-                print(f'| {b[i][j]:^3}',end=' ')
+                if (i,j) == (0,0) or (i,j) == (1,0) or (i,j) == (2,0) or (i,j) == (3,0) or (i,j) == (4,0):
+                    print(f' {b[i][j]:^3}',end=' ')
+                else:
+                    print(f'| {b[i][j]:^3}',end=' ')
         print()
         if i == 4:
             print()
@@ -585,29 +631,101 @@ def ctrl5(l,a=0):
     return c, n
 
 def wins5(b):
-    if b[0][0] == b[0][1] == b[0][2] == b[0][3] == b[0][4]:
+    if b[0][0] == b[0][1] == b[0][2]:
         w = True
-    elif b[1][0] == b[1][1] == b[1][2] == b[1][3] == b[1][4]:
+    elif b[0][1] == b[0][2] == b[0][3]:
         w = True
-    elif b[2][0] == b[2][1] == b[2][2] == b[2][3] == b[2][4]:
+    elif b[0][2] == b[0][3] == b[0][4]:
         w = True
-    elif b[3][0] == b[3][1] == b[3][2] == b[3][3] == b[3][4]:
+    elif b[1][0] == b[1][1] == b[1][2]:
         w = True
-    elif b[3][0] == b[3][1] == b[3][2] == b[3][3] == b[4][4]:
+    elif b[1][1] == b[1][2] == b[1][3]:
         w = True
-    elif b[0][0] == b[1][0] == b[2][0] == b[3][0] == b[4][0]:
+    elif b[1][2] == b[1][3] == b[1][4]:
         w = True
-    elif b[0][1] == b[1][1] == b[2][1] == b[3][1] == b[4][1]:
+    elif b[2][0] == b[2][1] == b[2][2]:
         w = True
-    elif b[0][2] == b[1][2] == b[2][2] == b[3][2] == b[4][2]:
+    elif b[2][1] == b[2][2] == b[2][3]:
         w = True
-    elif b[0][3] == b[1][3] == b[2][3] == b[3][3] == b[4][3]:
+    elif b[2][2] == b[2][3] == b[2][4]:
         w = True
-    elif b[0][4] == b[1][4] == b[2][4] == b[3][4] == b[4][4]:
+    elif b[3][0] == b[3][1] == b[3][2]:
         w = True
-    elif b[0][0] == b[1][1] == b[2][2] == b[3][3] == b[4][4]:
+    elif b[3][1] == b[3][2] == b[3][3]:
         w = True
-    elif b[0][4] == b[1][3] == b[2][2] == b[3][1] == b[4][0]:
+    elif b[3][2] == b[3][3] == b[3][4]:
+        w = True
+    elif b[4][0] == b[4][1] == b[4][2]:
+        w = True
+    elif b[4][1] == b[4][2] == b[4][3]:
+        w = True
+    elif b[4][2] == b[4][3] == b[4][4]:
+        w = True
+    elif b[0][0] == b[1][0] == b[2][0]:
+        w = True
+    elif b[1][0] == b[2][0] == b[3][0]:
+        w = True
+    elif b[2][0] == b[3][0] == b[4][0]:
+        w = True
+    elif b[0][1] == b[1][1] == b[2][1]:
+        w = True
+    elif b[1][1] == b[2][1] == b[3][1]:
+        w = True
+    elif b[2][1] == b[3][1] == b[4][1]:
+        w = True
+    elif b[0][2] == b[1][2] == b[2][2]:
+        w = True
+    elif b[1][2] == b[2][2] == b[3][2]:
+        w = True
+    elif b[2][2] == b[3][2] == b[4][2]:
+        w = True
+    elif b[0][3] == b[1][3] == b[2][3]:
+        w = True
+    elif b[1][3] == b[2][3] == b[3][3]:
+        w = True
+    elif b[2][3] == b[3][3] == b[4][3]:
+        w = True
+    elif b[0][4] == b[1][4] == b[2][4]:
+        w = True
+    elif b[1][4] == b[2][4] == b[3][4]:
+        w = True
+    elif b[2][4] == b[3][4] == b[4][4]:
+        w = True
+    elif b[0][0] == b[1][1] == b[2][2]:
+        w = True
+    elif b[1][1] == b[2][2] == b[3][3]:
+        w = True
+    elif b[2][2] == b[3][3] == b[4][4]:
+        w = True
+    elif b[0][4] == b[1][3] == b[2][2]:
+        w = True
+    elif b[1][3] == b[2][2] == b[3][1]:
+        w = True
+    elif b[2][2] == b[3][1] == b[4][0]:
+        w = True
+    elif b[1][0] == b[2][1] == b[3][2]:
+        w = True
+    elif b[2][1] == b[3][2] == b[4][3]:
+        w = True
+    elif b[2][0] == b[3][1] == b[4][2]:
+        w = True
+    elif b[0][1] == b[1][2] == b[2][3]:
+        w = True
+    elif b[1][2] == b[2][3] == b[3][4]:
+        w = True
+    elif b[0][2] == b[1][3] == b[2][4]:
+        w = True
+    elif b[3][0] == b[2][1] == b[1][2]:
+        w = True
+    elif b[2][1] == b[1][2] == b[0][3]:
+        w = True
+    elif b[2][0] == b[1][1] == b[0][2]:
+        w = True
+    elif b[4][1] == b[3][2] == b[2][3]:
+        w = True
+    elif b[3][2] == b[2][3] == b[1][4]:
+        w = True
+    elif b[4][2] == b[3][3] == b[2][4]:
         w = True
     else:
         w = False
