@@ -1,11 +1,13 @@
 from time import sleep
 from random import randint
 
+#An function to my headers
 def head(msg):
     print('-'*30)
     print(f'{msg:^30}')
     print('-'*30)
 
+#Reads integer numbers and treat exceptions
 def readint(msg):
     while True:
         try:
@@ -16,6 +18,7 @@ def readint(msg):
         else:
             return n
 
+#Reads only letters and treat exceptions
 def readstr(msg): 
     while True:
         n = input(msg)
@@ -25,14 +28,17 @@ def readstr(msg):
         else:
             return n 
 
+#Makes the changing from number to symble in the board
 def changingb(c,b,k):
     b[c[0]][c[1]] = k
     return b
 
+#Controls of the spaces alredy choosen
 def changingl(n,l):
     l[n-1] = 0
     return l
 
+#The menu of start 
 def menu1():
     m1 = ['1 - PLAY']
     head('TIC-TAC-TOE')
@@ -49,6 +55,7 @@ def menu1():
             print(f'\033[0;31mERROR! Choose one of the numbers on the MENU\033[m')
             sleep(1)
 
+#The menu to choose how many players will play
 def menu2():
     m2 = ['1Player', '2Players']
     head('TIC-TAC-TOE')
@@ -65,6 +72,7 @@ def menu2():
             print(f'\033[0;31mERROR! Choose one of the numbers on the MENU\033[m')
             sleep(1)
     
+#The menu to choose the board style to play
 def menu3():
     m3 = ['3x3','4x4','5x5']
     head('TIC-TAC-TOE')
@@ -81,11 +89,13 @@ def menu3():
             print(f'\033[0;31mERROR! Choose one of the numbers on the MENU\033[m')
             sleep(1)
 
+#Saves the checklists and chosen squares of the 3x3board
 def x3():
     l = [1,2,3,4,5,6,7,8,9]
     b = [[1,2,3],[4,5,6],[7,8,9]]
     return l,b
 
+#Shows the 3x3 board
 def board3(b):
     print(f'{"Quit[0]":>20}')
     for i in range(0,3):
@@ -106,6 +116,7 @@ def board3(b):
         else:
             print('-'*11)
 
+#Converts the command of the chosen space to the coordinate on the 3x3 board
 def ctrl3(l,a=0):
     if a == 1:
         while True:
@@ -146,6 +157,7 @@ def ctrl3(l,a=0):
         c = 0
     return c, n
 
+#Saves the possible moves to win the match in the 3x3 board
 def wins3(b):
     if b[0][0] == b[0][1] == b[0][2]:
         w = True
@@ -167,6 +179,7 @@ def wins3(b):
         w = False
     return w
 
+#The Game for 3x3board 1player
 def game1p3():
     a = 'Y'
     while a == 'Y':
@@ -229,6 +242,7 @@ def game1p3():
     print('Finishing... Thanks for playing ;)')
     sleep(1)
 
+#The Game for 3x3board 2players
 def game2p3():
     a = 'Y'
     while a == 'Y':
@@ -284,11 +298,13 @@ def game2p3():
     print('Finishing... Thanks for playing ;)')
     sleep(1)
 
+#Saves the checklists and chosen squares of the 4x4board
 def x4():
     l = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     b = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
     return l,b
 
+#Shows the 4x4 board
 def board4(b):
     print(f'{"Quit[0]":>32}')
     for i in range(0,4):
@@ -309,6 +325,7 @@ def board4(b):
         else:
             print('-'*23)
 
+#Converts the command of the chosen space to the coordinate on the 4x4 board
 def ctrl4(l,a=0):
     if a == 1:
         while True:
@@ -363,6 +380,7 @@ def ctrl4(l,a=0):
         c = 0
     return c, n
 
+#Saves the possible moves to win the match in the 4x4 board
 def wins4(b):
     if b[0][0] == b[0][1] == b[0][2]:
         w = True
@@ -416,6 +434,7 @@ def wins4(b):
         w = False
     return w
 
+#The Game for 4x4board 1player
 def game1p4():
     a = 'Y'
     while a == 'Y':
@@ -478,6 +497,7 @@ def game1p4():
     print('Finishing... Thanks for playing ;)')
     sleep(1)
 
+#The Game for 4x4board 2players
 def game2p4():
     a = 'Y'
     while a == 'Y':
@@ -533,11 +553,13 @@ def game2p4():
     print('Finishing... Thanks for playing ;)')
     sleep(1)
 
+#Saves the checklists and chosen squares of the 5x5board
 def x5():
     l = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
     b = [[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]]
     return l,b
 
+#Shows the 5x5 board
 def board5(b):
     print(f'{"Quit[0]":>38}')
     for i in range(0,5):
@@ -558,6 +580,7 @@ def board5(b):
         else:
             print('-'*29)
 
+#Converts the command of the chosen space to the coordinate on the 5x5 board
 def ctrl5(l,a=0):
     if a == 1:
         while True:
@@ -630,6 +653,7 @@ def ctrl5(l,a=0):
         c = 0
     return c, n
 
+#Saves the possible moves to win the match in the 5x5 board
 def wins5(b):
     if b[0][0] == b[0][1] == b[0][2]:
         w = True
@@ -731,6 +755,7 @@ def wins5(b):
         w = False
     return w
 
+#The Game for 5x5board 1player
 def game1p5():
     a = 'Y'
     while a == 'Y':
@@ -793,6 +818,7 @@ def game1p5():
     print('Finishing... Thanks for playing ;)')
     sleep(1)
 
+#The Game for 5x5board 2players
 def game2p5():
     a = 'Y'
     while a == 'Y':
